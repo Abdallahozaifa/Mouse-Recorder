@@ -247,25 +247,49 @@ public class Lab2 {
      * inputs the the numbers into the text field from each Array list
      */
     public static void inputText(int mouseClickedTimes, int arrayElem){
+        int filIntNum1 = TestTool.num1InputFile.get(arrayElem);
+        int fileIntNum2 = TestTool.num2InputFile.get(arrayElem);
+        int expectedIntSum = TestTool.expectedSum.get(arrayElem);
         String fileNum1 = Integer.toString(TestTool.num1InputFile.get(arrayElem));
         String fileNum2 = Integer.toString(TestTool.num2InputFile.get(arrayElem));
+        String expectedSum = Integer.toString(TestTool.expectedSum.get(arrayElem));
+        int diff = Math.abs((filIntNum1 + fileIntNum2) - expectedIntSum);
         
         if(mouseClickedTimes == 0){
             removeAllInTextBox(arrayElem,1);
             for(int i=0;i<fileNum1.length();i++){
                 robot.keyPress(KeyEvent.getExtendedKeyCodeForChar(fileNum1.charAt(i)));
                 robot.keyRelease(KeyEvent.getExtendedKeyCodeForChar(fileNum1.charAt(i)));
-                robot.delay(1000);
-                //TestTool.validationTextArea.append(fileNum1.charAt(i)));
+                robot.delay(10);
+                
             }
+            TestTool.validationTextArea.append(fileNum1);
+            TestTool.validationTextArea.append(" + ");
         }else if(mouseClickedTimes == 1){
             removeAllInTextBox(arrayElem,2);
             for(int i=0;i<fileNum2.length();i++){
                 robot.keyPress(KeyEvent.getExtendedKeyCodeForChar(fileNum2.charAt(i)));
                 robot.keyRelease(KeyEvent.getExtendedKeyCodeForChar(fileNum2.charAt(i)));
-                robot.delay(1000);
+                robot.delay(10);
             }
+            TestTool.validationTextArea.append(fileNum2);
+            TestTool.validationTextArea.append(" =");
+        }else if(mouseClickedTimes == 3){
+            TestTool.validationTextArea.append("  " + expectedSum + "   " + isValid(filIntNum1, fileIntNum2, expectedIntSum) + "   " + "diff=" + diff +"\n");
         }        
+    }
+    /**
+     * 
+     * @param num1
+     * @param num2
+     * @param sum
+     * @return weather the equation is valid or not
+     */
+    public static String isValid(int num1, int num2, int sum){
+                if(num1 + num2 != sum){
+                    return "Failed!";
+                }
+                return "Passed!";
     }
     /**
      * 

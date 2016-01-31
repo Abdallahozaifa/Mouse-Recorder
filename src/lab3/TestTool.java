@@ -459,8 +459,10 @@ public class TestTool extends javax.swing.JFrame {
                         mgui.setEnabled(true);
                         //Lab2.robotAdd(100);
                         int timeTaken = (int) (time[1] - time[0]);
-                        Lab2.mimicMouseMovement(timeTaken, arrayElem);
-                        arrayElem++;
+                        while(arrayElem < 4){
+                            Lab2.mimicMouseMovement(timeTaken, arrayElem);
+                            arrayElem++;
+                        }
                         mgui.setEnabled(false);
                     }catch (AWTException ex) {
                         Logger.getLogger(TestTool.class.getName()).log(Level.SEVERE, null, ex);
