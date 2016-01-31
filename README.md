@@ -1,3 +1,3 @@
 # Mouse-Recorder
 Records the mouse movements of a user and plays it back to the user
-![image](https://cloud.githubusercontent.com/assets/10437615/12698828/93ee1332-c775-11e5-90ab-9db31b8934f6.PNG)
+![image](https://cloud.githubusercontent.com/assets/10437615/12704556/f11eee9e-c82b-11e5-8140-0e74789f8d1b.gif)
